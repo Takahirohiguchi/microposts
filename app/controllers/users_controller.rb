@@ -18,10 +18,27 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.new
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    @user = User.new(user_params)
+　　redirect_to user_path(@user)  #追加文
+
+    if @user.save
+      flash[:success] = "Complete！"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :profile, :area, :password,
                                  :password_confirmation)
   end
 end

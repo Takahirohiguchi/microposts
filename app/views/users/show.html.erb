@@ -2,3 +2,16 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+
+<div class="email">
+  メールアドレス  :  
+  <% @user.email %>
+</div>
+<div class="profile">
+  プロフィール  :  
+  <% @user.profile %>
+</div>
+<div class="area">
+  お住まいの地域  :  
+  <% @user.area %>
+</div>
